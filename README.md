@@ -14,7 +14,7 @@
 - Python (3.8.20), opencv-python (4.11.0.86), PyTorch (2.4.1), torchvision (0.19.1).
 
 #### Download
-Execution file, configuration file, and models are download from the [zip](???) file.  
+Execution file, configuration file, and models are download from the [zip]([???](https://drive.google.com/drive/folders/1qrTJaNxNXHD6w01SO676rCfqAvDCJR7P)) file.  
 ## Steps
 #### 1.Installation
 
