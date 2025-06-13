@@ -73,8 +73,10 @@ Place the image in ./traffic_sign_dataset
 #### 2. Inference 
 
 To generate the prediction outcome of the CDefficient model, 
+
 ```
-python inference.py
+python inference.py --stage predict --model traffic_best.pt --source "./traffic_sign_dataset/images/test" --imgsz1024 --save_txt=True --project "./inference_result" --name traffic_best
+
 ```
 
 After inference, the output directory structure will be:
@@ -96,7 +98,8 @@ After inference, the output directory structure will be:
 
 Run this code in the terminal to train:
 ```
-python train.py
+python train.py --model yolo11x.pt --data data_path.yaml --epochs 200 --imgsz 1024 --batch 4 --device 0 --project trained_model --name CDefficient_Detector --augment=True --mosaic=True --mixup 0.5
+
 ```
 
 #### Training
