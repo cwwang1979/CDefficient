@@ -1,8 +1,8 @@
 
-# RRTODF
+# CDefficient
 
 ## Associated Publications
-- (Under submission) Wang et al. (2025) Computational and Data-Efficient Object Detection for Traffic Sign Recognition and Medical Examination of Mitotic Figures
+- (Under submission) Wang et al. (2025) Computational and Data-Efficient Deep Learning for Robust and Fast Object Detection and Classification
 
 ## Setup
 
@@ -14,15 +14,16 @@
 - Python (3.8.20), opencv-python (4.11.0.86), PyTorch (2.4.1), torchvision (0.19.1).
 
 #### Download
-Execution file, configuration file, and models are download from the [zip]([???](https://drive.google.com/drive/folders/1qrTJaNxNXHD6w01SO676rCfqAvDCJR7P)) file.  
+Execution file, configuration file, and models are download from the [zip](https://drive.google.com/drive/folders/1qrTJaNxNXHD6w01SO676rCfqAvDCJR7P) file.
+
 ## Steps
 #### 1.Installation
 
 Please refer to the following instructions.
 ```
 # create and activate the conda environment
-conda create -n RRTODF python=3.8 -y
-conda activate RRTODF
+conda create -n CDefficient_Detector python=3.8 -y
+conda activate CDefficient_Detector
 
 # install related package
 pip install ultralytics
@@ -71,7 +72,7 @@ Place the image in ./traffic_sign_dataset
 
 #### 2. Inference 
 
-To generate the prediction outcome of the RRTODF model, 
+To generate the prediction outcome of the CDefficient model, 
 ```
 python inference.py
 ```
@@ -103,7 +104,7 @@ python train.py
 After training, the output directory structure will be:
 ```
 ./trained_model
-└── RRTODF
+└── CDefficient
     └── weights
         ├── best.pt
         └── last.pt
