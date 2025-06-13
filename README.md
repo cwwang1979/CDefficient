@@ -14,8 +14,7 @@
 - Python (3.8.20), opencv-python (4.11.0.86), PyTorch (2.4.1), torchvision (0.19.1).
 
 #### Download
-Execution file, configuration file, and models are download from the [zip](???) file.  (For reviewers, "..._cwlab" is the password to decompress the file.)
-
+Execution file, configuration file, and models are download from the [zip](???) file.  
 ## Steps
 #### 1.Installation
 
