@@ -14,7 +14,7 @@
 - Python (3.8.20), opencv-python (4.11.0.86), PyTorch (2.4.1), torchvision (0.19.1).
 
 #### Download
-Execution file, configuration file, and models are download from the [zip](https://drive.google.com/drive/folders/1qrTJaNxNXHD6w01SO676rCfqAvDCJR7P) file.
+Data, execution file, configuration file, and models are download from the [zip](https://drive.google.com/drive/folders/1qrTJaNxNXHD6w01SO676rCfqAvDCJR7P) file.
 
 ## Steps
 #### 1.Installation
@@ -75,18 +75,22 @@ Each .txt file should follow the format:
 
 #### 2. Inference 
 
-To generate the prediction outcome of the CDefficient model, 
+To generate the prediction outcome of the CDefficient model in traffic sign data, 
 
 ```
 python inference.py --stage predict --model traffic_best.pt --source "./traffic_sign_dataset/images/test" --imgsz 1024 --save_txt=True --project "./inference_result" --name traffic_best
+```
 
+To generate the prediction outcome of the CDefficient model in mitotic data, 
+```
+python inference.py --stage predict --model mitotic_best.pt --source "./Path to mitotic inference data" --imgsz 1024 --save_txt=True --project "./inference_result" --name mitotic_best
 ```
 | Argument                                      | Description                                                        |
 | --------------------------------------------- | ------------------------------------------------------------------ |
 | `--stage predict`                             | Indicates that the model is in inference mode.                     |
-| `--model traffic_best.pt`                     | Path to the trained model weights file.                            |
-| `--source ./traffic_sign_dataset/images/test` | Directory containing the test images to be evaluated.              |
-| `--imgsz 1024`                                | Resize input images to 1024×1024 before inference.                 |
+| `--model traffic_best.pt`                     | Path to the proposed model traffic_best.pt or mitotic_best.pt                            |
+| `--source ./traffic_sign_dataset/images/test` | Directory containing the test images             |
+| `--imgsz 1024`                                | Input feature space of size 1024×1024.                 |
 | `--save_txt=True`                             | Saves predictions (bounding boxes, classes) in `.txt` format.      |
 | `--project ./inference_result`                | Base directory where results will be saved.                        |
 | `--name traffic_best`                         | Subdirectory name under the project folder for this run's results. |
@@ -120,16 +124,32 @@ All bounding box coordinates are normalized to the range [0,1]
 
 Run this code in the terminal to train:
 ```
-python train.py --model yolo11x.pt --data data_path.yaml --epochs 200 --imgsz 1024 --batch 4 --device 0 --project trained_model --name CDefficient_Detector --augment=True --mosaic=True --mixup 0.5
+python train.py --model CDefficient_Detector.pt --data data_path.yaml --epochs 200 --imgsz 1024 --batch 4 --device 0 --project trained_model --name CDefficient_Detector --augment=True --SetSamplingGP=True --SetFusion 0.5
 
 ```
+
+| Argument    | Description                                                              |
+| ----------- | ------------------------------------------------------------------------ |
+| `--model`   | Path to the pretrained weight CDefficient_Detector.pt file (`.pt`).   |
+| `--data`    | YAML file specifying training and validation data paths and class info.  |
+| `--epochs`  | Number of training epochs.                                               |
+| `--imgsz`   | Input feature space of size 1024×1024.    |
+| `--batch`   | Batch size used during training.                                         |
+| `--device`  | GPU index to use (e.g., `0` or `0,1` for multi-GPU).                     |
+| `--project` | Base output directory where all training logs and weights will be saved. |
+| `--name`    | Subfolder name under `project/` for this specific training run.          |
+| `--augment` | Whether to apply general data augmentation.                              |
+| `--SetSamplingGP`  | Apply set sampling and geometrical projection augmentation.             |
+| `--SetFusion`   | Apply setion fusion augmentation with fusion coefficient.                 |
+
+
 
 #### Training
 
 After training, the output directory structure will be:
 ```
 ./trained_model
-└── CDefficient
+└── CDefficient_Detector
     └── weights
         ├── best.pt
         └── last.pt
