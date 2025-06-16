@@ -87,13 +87,13 @@ python inference.py --stage predict --model mitotic_best.pt --source "./Path to 
 ```
 | Argument                                      | Description                                                        |
 | --------------------------------------------- | ------------------------------------------------------------------ |
-| `--stage predict`                             | Indicates that the model is in inference mode.                     |
-| `--model traffic_best.pt`                     | Path to the proposed model traffic_best.pt or mitotic_best.pt                            |
-| `--source ./traffic_sign_dataset/images/test` | Directory containing the test images             |
-| `--imgsz 1024`                                | Input feature space of size 1024×1024.                 |
-| `--save_txt=True`                             | Saves predictions (bounding boxes, classes) in `.txt` format.      |
-| `--project ./inference_result`                | Base directory where results will be saved.                        |
-| `--name traffic_best`                         | Subdirectory name under the project folder for this run's results. |
+| `--stage `                             | Indicates that the model is in inference mode.                     |
+| `--model `                     | Path to the proposed model traffic_best.pt or mitotic_best.pt                            |
+| `--source ` | Directory containing the test images             |
+| `--imgsz `                                | Input feature space of size 1024×1024.                 |
+| `--save_txt`                             | Saves predictions (bounding boxes, classes) in `.txt` format.      |
+| `--project `                | Base directory where results will be saved.                        |
+| `--name `                         | Subdirectory name under the project folder for this run's results. |
 
 
 
