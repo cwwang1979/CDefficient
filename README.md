@@ -31,7 +31,7 @@ pip install ultralytics
 
 #### 1. Data format
 
-Place the image in ./traffic_sign_dataset
+Place your dataset inside ./traffic_sign_dataset/ following the structure:
 ```
 ./traffic_sign_dataset
 ├── images
@@ -67,8 +67,11 @@ Place the image in ./traffic_sign_dataset
         ├── ⋮
         └── test_imagen.txt
 ```
+Each .txt file should follow the format:
+```
+<class_id> <x_center> <y_center> <width> <height>
 
-
+```
 
 #### 2. Inference 
 
@@ -78,6 +81,18 @@ To generate the prediction outcome of the CDefficient model,
 python inference.py --stage predict --model traffic_best.pt --source "./traffic_sign_dataset/images/test" --imgsz 1024 --save_txt=True --project "./inference_result" --name traffic_best
 
 ```
+| Argument                                      | Description                                                        |
+| --------------------------------------------- | ------------------------------------------------------------------ |
+| `--stage predict`                             | Indicates that the model is in inference mode.                     |
+| `--model traffic_best.pt`                     | Path to the trained model weights file.                            |
+| `--source ./traffic_sign_dataset/images/test` | Directory containing the test images to be evaluated.              |
+| `--imgsz 1024`                                | Resize input images to 1024×1024 before inference.                 |
+| `--save_txt=True`                             | Saves predictions (bounding boxes, classes) in `.txt` format.      |
+| `--project ./inference_result`                | Base directory where results will be saved.                        |
+| `--name traffic_best`                         | Subdirectory name under the project folder for this run's results. |
+
+
+
 
 After inference, the output directory structure will be:
 
@@ -91,6 +106,13 @@ After inference, the output directory structure will be:
         └── test_imagen.txt
 
 ```
+Each line in the output text file corresponds to one detected object, using the following format:
+```
+<class_id> <x_center> <y_center> <width> <height> 
+
+```
+All bounding box coordinates are normalized to the range [0,1]
+
 
 
 ## Training
