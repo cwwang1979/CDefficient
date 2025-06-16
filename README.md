@@ -78,7 +78,7 @@ Each .txt file should follow the format:
 To generate the prediction outcome of the CDefficient model in traffic sign data, 
 
 ```
-python inference.py --stage predict --model traffic_best.pt --source "./traffic_sign_dataset/images/test" --imgsz 1024 --save_txt=True --project "./inference_result" --name traffic_best
+python inference.py --stage predict --model traffic_best.pt --source "../traffic_sign_dataset/images/test" --imgsz 1024 --save_txt=True --project "./inference_result" --name traffic_best
 ```
 
 To generate the prediction outcome of the CDefficient model in mitotic data, 
