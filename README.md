@@ -2,8 +2,9 @@
 # CDefficient
 
 ## Associated Publications
+If you use this work or any part of this repository in your research, please cite the following paper:
+https://github.com/cwwang1979/CDefficient
 - (Under submission) Wang et al. (2025) Computational and Data-Efficient Deep Learning for Robust and Fast Object Detection and Classification
-
 ## Setup
 
 #### Requirerements
